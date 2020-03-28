@@ -16,14 +16,20 @@ export default class App extends React.Component {
     this.setState({ addTodoVisible: !this.state.addTodoVisible });
   }
 
+  renderList = list => {
+    return <TodoList list={list} />
+  }
+
   render() {
     return (
       <View style={styles.container}>
+        {/* START MODAL VIEW */}
         <Modal animationType="slide" 
                visible={this.state.addTodoVisible} 
                onRequestClose={() => this.toggleAddTodoModal()}>
           <AddListModal closeModal={() => this.toggleAddTodoModal()} />
         </Modal>
+        {/* END MODAL */}
         <View style={{flexDirection:"row"}}>
           <View style={styles.divider} />
             <Text style={styles.title}>
@@ -44,9 +50,7 @@ export default class App extends React.Component {
               keyExtractor={item => item.name} 
               horizontal={true} 
               showsHorizontalScrollIndicator ={false}
-              renderItem={({item}) => (
-                <TodoList list={item} />
-                )}
+              renderItem={({item}) => this.renderList(item)}
             />
           </View>
       </View>
