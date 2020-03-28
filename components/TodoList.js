@@ -25,7 +25,11 @@ export default class Todolist extends React.Component {
                        visible= {this.state.showListVisible} 
                        onRequestClose ={() => this.toggleListModal()} 
                 >
-                    <TodoModal list={list} closeModal={() => this.toggleListModal()} />
+                    <TodoModal 
+                        list={list} 
+                        closeModal={() => this.toggleListModal()} 
+                        updateList={this.props.updateList} 
+                    />
                 </Modal>
 
             
@@ -39,11 +43,11 @@ export default class Todolist extends React.Component {
                     </Text>
                     <View>
                         <View style={{ alignItems:"center" }}>
-                            <Text style={styles.count}>{completedCount}</Text>
+                            <Text style={styles.count}>{remainingCount}</Text>
                             <Text style={styles.subtitle}>Remaining</Text>
                         </View>
                         <View style={{ alignItems:"center" }}>
-                            <Text style={styles.count}>{remainingCount}</Text>
+                            <Text style={styles.count}>{completedCount}</Text>
                             <Text style={styles.subtitle}>Completed</Text>
                         </View>
                     </View>

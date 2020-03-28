@@ -3,6 +3,7 @@
 
 export default tempData = [
     {
+        id: 1,
         name: " Plan a Trip",
         color: "#24A6D9",
         todos: [
@@ -19,7 +20,7 @@ export default tempData = [
                 completed: true
             },
             {
-                title: "Book Flight",
+                title: "Book Back",
                 completed: false
             },
             {
@@ -29,7 +30,8 @@ export default tempData = [
         ]
     },
     {
-        name: " Birthday Party",
+        id: 2,
+        name: "Birthday Party",
         color: "#222D39",
         todos: [
             {

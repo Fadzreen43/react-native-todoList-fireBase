@@ -17,11 +17,9 @@ export default class AddListModal extends React.Component {
     createTodo =() => {
         const {name, color} = this.state
 
-        tempData.push({
-            name,
-            color,
-            todos:[]
-        });
+        const list = {name,color};
+
+        this.props.addList(list);
 
         this.setState({name: ""});
         this.props.closeModal();
@@ -30,9 +28,10 @@ export default class AddListModal extends React.Component {
     renderColors(){
         return this.backgroundColor.map(color =>{
             return (
-                <TouchableOpacity key= {color} 
-                                  style={[styles.colorSelect,{backgroundColor:color}]} 
-                                  onPress={() => this.setState({color})} 
+                <TouchableOpacity 
+                key= {color} 
+                style={[styles.colorSelect,{backgroundColor:color}]} 
+                onPress={() => this.setState({color})} 
                                   />
             )
         })
